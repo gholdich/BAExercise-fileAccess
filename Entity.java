@@ -56,41 +56,13 @@ public class Entity {
 	
 	public static int averagePetOwnerSalary(ArrayList<Person> personArray, String Species) {
 		List<Integer> salarys = new ArrayList<Integer>();
-		int sum = 0;
-		personArray.forEach((Person p) -> {
+		personArray.forEach((Person p) ->
 			p.getPets().forEach((Animal a) -> {
-				if(a.getSpecies().equalsIgnoreCase(Species)) {
+				if(a.getSpecies().equalsIgnoreCase(Species))
 					salarys.add(p.getSalary());
-				}
-			});
-		});
-		sum = (int) salarys.stream().mapToInt(e -> e).average().getAsDouble();
-		return sum;
+			}));
+		return (int) salarys.stream().mapToInt(e -> e).average().getAsDouble();
 	}
-	
-	public void occupationsOfPetOwner(String Species) {
-		List<String> occupations = new ArrayList<String>();
-		personArray.forEach((Person p) -> {
-			p.getPets().forEach((Animal a) -> {
-				if(a.getSpecies().equalsIgnoreCase(Species)) {
-					occupations.add(p.getOccupation());
-				}
-			});
-		});
-		occupations.forEach(System.out::println);
-	}
-	
-	public void speciesOfPetFromOccupation(String occupations) {
-		List<String> pets = new ArrayList<String>();
-		personArray.forEach((Person p) -> {
-			if(p.getOccupation().equalsIgnoreCase(occupations)) {
-				p.getPets().forEach((Animal a) -> {
-					pets.add(a.getSpecies());
-				});
-			}
-		});
-		pets.forEach(System.out::println);
-	}	
 	
 	
 	public ArrayList<Person> getPersonArray() {
