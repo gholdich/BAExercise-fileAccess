@@ -16,7 +16,6 @@ public class Entity {
 			p.addPets(a);
 		}));
 	}
-	
 	public void processDialog() {
 		formDialog.personDescription(personArray);
 		formDialog.personPets(personArray);
@@ -24,7 +23,6 @@ public class Entity {
 		formDialog.occupationOfOwnerByAnimal(personArray, "cat");// returns occupations of persons whom own a specific species of pet. replace "cat" with any species.
 		formDialog.animalOwnedByOccupation(personArray, "trainer");// returns pets of persons with specified occupation. replace "trainer" with any occupation.
 	}
-	
 	public void addPersons(StringBuilder sb) {
 		String[] Persons = splitStringToObjects(sb)[0];
 		String[][] Person = new String[Persons.length][];
@@ -34,7 +32,6 @@ public class Entity {
 			getPersonArray().add(new Person(Person[i][0], Person[i][1], Person[i][2], Integer.parseInt(Person[i][3])));
 		});
 	}
-	
 	public void addAnimals(StringBuilder sb) {
 		String[] Pets = splitStringToObjects(sb)[1];
 		String[][] Pet = new String[Pets.length][];
@@ -44,7 +41,6 @@ public class Entity {
 			this.getAnimalArray().add(new Animal(Pet[i][0], Pet[i][1]));
 		});
 	}
-	
 	public String[][] splitStringToObjects(StringBuilder sb) {
 		String[] seperateGroups = sb.toString().split("&,");
 		String[][] objects = new String[seperateGroups.length][];
@@ -53,7 +49,6 @@ public class Entity {
 						= seperateGroups[Arrays.asList(seperateGroups).indexOf(e)].split("%,"));
 		return objects;
 	}
-	
 	public static int averagePetOwnerSalary(ArrayList<Person> personArray, String Species) {
 		List<Integer> salarys = new ArrayList<Integer>();
 		personArray.forEach((Person p) ->
@@ -68,17 +63,13 @@ public class Entity {
 	public ArrayList<Person> getPersonArray() {
 		return personArray;
 	}
-
 	public void setPersonArray(ArrayList<Person> personArray) {
 		this.personArray = personArray;
 	}
-
 	public ArrayList<Animal> getAnimalArray() {
 		return animalArray;
 	}
-
 	public void setAnimalArray(ArrayList<Animal> animalArray) {
 		this.animalArray = animalArray;
 	}
-	
 }
